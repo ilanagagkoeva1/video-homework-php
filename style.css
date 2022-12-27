@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(./assets/Montserrat-Regular.ttf);
+}
+
+body {
+    font-family: 'Montserrat';
+
+}
+
+.form-for-video {}
+
+input {
+    font-family: 'Montserrat';
+
+}
+
+input[type="file"] {
+
+    border: 1px solid darkslategrey;
+    padding: 10px 20px;
+
+}
+
+input[type="submit"] {
+    background: transparent;
+    border: 1px solid lightgreen;
+    padding: 10px 20px;
+}
+
+
+video {
+    max-width: 50%;
+    min-height: 360px;
+}
+
+.videos {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    color: #006CFF;
+    font-size: 1.5rem;
+}
