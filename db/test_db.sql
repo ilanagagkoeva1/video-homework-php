@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 22 2022 г., 17:58
+-- Время создания: Дек 27 2022 г., 23:54
 -- Версия сервера: 5.7.38
--- Версия PHP: 8.0.18
+-- Версия PHP: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -104,7 +104,8 @@ INSERT INTO `users` (`id`, `channelname`, `email`, `password`, `description`) VA
 (11, 'z', 'z@mail.ru', '202cb962ac59075b964b07152d234b70', NULL),
 (12, 'ilana', 'ilana@mail.ru', 'dc3b2f948f70137c146d91e10938e2a6', NULL),
 (13, 'iiii', 'i@mail.ru', '698d51a19d8a121ce581499d7b701668', NULL),
-(14, 'sssss', 'iii@mail.ru', 'dc3b2f948f70137c146d91e10938e2a6', NULL);
+(14, 'sssss', 'iii@mail.ru', 'dc3b2f948f70137c146d91e10938e2a6', NULL),
+(15, 'xzxzxz', 'i1@gmail.ru', '698d51a19d8a121ce581499d7b701668', 'xzxzxzzxxz');
 
 -- --------------------------------------------------------
 
@@ -117,27 +118,33 @@ CREATE TABLE `videos` (
   `video_url` text NOT NULL,
   `channelname` varchar(50) DEFAULT NULL,
   `videoname` varchar(50) NOT NULL,
-  `description` varchar(500) DEFAULT NULL
+  `description` varchar(500) DEFAULT NULL,
+  `channel_id` int(11) NOT NULL,
+  `image_url` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Дамп данных таблицы `videos`
 --
 
-INSERT INTO `videos` (`id`, `video_url`, `channelname`, `videoname`, `description`) VALUES
-(3, 'video-63a44eab5cdbf4.57623646.mp4', '', '', NULL),
-(4, 'video-63a44eb5b74710.93307892.mp4', '', '', NULL),
-(5, 'video-63a46420d54e08.36478872.mp4', '', 'dsfdsaf', 'dfasffdssf'),
-(6, 'video-63a4647c7359b4.07062455.mp4', 'ilana', 'dsfdsf', 'dfsfdfs'),
-(7, 'video-63a46b9d945a47.46221641.mp4', NULL, 'sd', 'ddd'),
-(8, 'video-63a46baa4a1dc5.19225608.mp4', NULL, 'xxczcxz', 'xczcxxcz'),
-(9, 'video-63a46bf3757af6.84199249.mp4', NULL, 'saddasdas', 'dasdasdas'),
-(10, 'video-63a46c6f530b24.70033243.mp4', NULL, 'AAAAAAAA', 'AAAAAAAAAA'),
-(11, 'video-63a46e7ebfede3.74823905.mp4', NULL, 'IIIIIIIIIIIdasdasdas', 'sdadasdas'),
-(12, 'video-63a46eae95c589.55599589.mp4', NULL, 'AAAA1111111a', 'dsadsdas'),
-(13, 'video-63a46ecdb4c335.63604951.mp4', NULL, '111111111', '111111111111'),
-(14, 'video-63a46f5b20fd87.97876307.mp4', NULL, '22222', '22222'),
-(15, 'video-63a46ff31023e8.30824544.mp4', NULL, 'dfsfs', 'safsfasfs');
+INSERT INTO `videos` (`id`, `video_url`, `channelname`, `videoname`, `description`, `channel_id`, `image_url`) VALUES
+(3, 'video-63a44eab5cdbf4.57623646.mp4', 'ilana', 'dfsddsd', NULL, 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(4, 'video-63a44eb5b74710.93307892.mp4', 'ilana', 'xzxzxzxz', 'xzxz', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(5, 'video-63a46420d54e08.36478872.mp4', 'ilana', 'dsfdsaf', 'dfasffdssf', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(6, 'video-63a4647c7359b4.07062455.mp4', 'ilana', 'dsfdsf', 'dfsfdfs', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(7, 'video-63a46b9d945a47.46221641.mp4', 'username', 'sd', 'ddd', 17, 'images/kitten_5120x2880_ib3l1.jpg'),
+(8, 'video-63a46baa4a1dc5.19225608.mp4', 'username', 'xxczcxz', 'xczcxxcz', 17, 'images/kitten_5120x2880_ib3l1.jpg'),
+(9, 'video-63a46bf3757af6.84199249.mp4', 'username', 'saddasdas', 'dasdasdas', 17, 'images/kitten_5120x2880_ib3l1.jpg'),
+(10, 'video-63a46c6f530b24.70033243.mp4', 'ilana', 'AAAAAAAA', 'AAAAAAAAAA', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(11, 'video-63a46e7ebfede3.74823905.mp4', 'ilana', 'IIIIIIIIIIIdasdasdas', 'sdadasdas', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(12, 'video-63a46eae95c589.55599589.mp4', 'username', 'AAAA1111111a', 'dsadsdas', 17, 'images/63a5b97887b43.png'),
+(13, 'video-63a46ecdb4c335.63604951.mp4', 'username', '111111111', '111111111111', 17, 'images/kitten_5120x2880_ib3l1.jpg'),
+(14, 'video-63a46f5b20fd87.97876307.mp4', 'ilana', '22222', '22222', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(15, 'video-63a46ff31023e8.30824544.mp4', 'ilana', 'dfsfs', 'safsfasfs', 12, 'images/kitten_5120x2880_ib3l1.jpg'),
+(16, 'video-63a5b97887b4b6.01462134.mp4', 'xzxzxz', 'dffffff', 'dfffffff', 15, 'images/63ab447f6cda0.png'),
+(18, 'video-63a5b97887b4b6.01462134.mp4', 'xzxzxz', 'ddddddddd', 'dddddddd', 15, 'images/63ab44e5b91e8.png'),
+(19, 'video-63a5b97887b4b6.01462134.mp4', 'xzxzxz', 'ttttttt', 'ttttttttt', 15, 'images/63ab4537c5e1c.png'),
+(20, 'video-63a5b97887b4b6.01462134.mp4', 'xzxzxz', 'ddd', 'dddddd', 15, 'images/63ab45c808e3c.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -189,13 +196,13 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
