@@ -14,13 +14,14 @@ if (!$post) {
     <p><?= $post['videoname'] ?></p>
 
     <p><?= $post['description'] ?></p>
-    <p><?= $post['channelname'] ?></p>
-
+    <? if ($user && $post && $user['id'] == $post['channel_id'])):?>
+    <p><?= $user['channelname'] ?></p>
+    <?endif;?>
     <video poster="<?= $post['image_url'] ?>" src="uploads/<?=$post['video_url']?>" controls>
 
     </video>
 
-    <?php if ($user && $post && $user['channelname'] == $post['channelname']) : ?>
+    <?php if ($user && $post && $user['id'] == $post['channel_id']) : ?>
         <a href="edit.php?id=<?= $post['id'] ?>">Edit</a> |
         <a href="delete.php?id=<?= $post['id'] ?>">Delete</a>
     <?php endif; ?>

@@ -19,6 +19,7 @@ shuffle($display);
 
 <?php foreach ($display as $video) :
     $video = preparePost($video);
+   
 ?>
     <article>
         <div class="videos">
@@ -27,7 +28,7 @@ shuffle($display);
             <p><?= $video['description'] ?></p>
             <br>
             <br>
-            <!-- <p><a href="post.php?id=<?= $post['id'] ?>">Read more...</a></p> -->
+          
             <a href="show.php?id=<?= $video['id'] ?>"><img src="<?= $video['image_url']  ?>" alt=""></a>
             <!-- добавить расширение картинки !!!!!!! или в бд или сюда локально -->
             <!-- <video poster="<?= $video['image_url'] ?>" src="uploads/<?= $video['video_url'] ?>" controls>
@@ -36,6 +37,7 @@ shuffle($display);
             <br>
     </article>
     <hr>
+
 <?php endforeach; ?>
 <?
 if (count($display) < count($videos)) {

@@ -3,13 +3,13 @@ session_start();
 
 // connect to db
 $db = new PDO('mysql:host=localhost;dbname=test_db', 'root', 'root');
-$sname = "localhost";
-$uname = "root";
-$password = "root";
+// $sname = "localhost";
+// $uname = "root";
+// $password = "root";
 
-$db_name = "test_db";
+// $db_name = "test_db";
 
-$conn = mysqli_connect($sname, $uname, $password, $db_name);
+// $conn = mysqli_connect($sname, $uname, $password, $db_name);
 
 /**
  * User
@@ -42,7 +42,7 @@ function preparePost($post)
     $post['videoname'] = htmlspecialchars($post['videoname']);
     $post['description'] = $post['description'];
     $post['video_url'] = htmlspecialchars($post['video_url']);
-    $post['channelname'] = htmlspecialchars($post['channelname']);
+    // $post['channelname'] = htmlspecialchars($post['channelname']);
     $post['image_url'] =  htmlspecialchars($post['image_url']);
 
     return $post;
@@ -61,9 +61,4 @@ function redirect($url)
     header('Location: ' . $url);
     exit;
 }
-// function hasAccess($post)
-// {
-//     global $user;
 
-//     return $user && $post && $user['channelname'] === $post['channelname'];
-// }

@@ -39,23 +39,16 @@ if (isset($_POST['submit'])) {
         // перемещаем файл из временной директории в нашу
             $new_video_name = uniqid("video-", true) . '.' . $video_ex_lc;
             $video_upload_path = 'uploads/' . $new_video_name;
-            move_uploaded_file($tmp_name, $video_upload_path);
+            move_uploaded_file($video['tmp_name'], $video_upload_path);
             move_uploaded_file($image['tmp_name'], $imagePath);
-            // $channel = $user['channelname'];
-            // debug_to_console($user['channelname']);
-            // Now let's Insert the video path into database
-            // $sql = "INSERT INTO videos(video_url) 
-            //        VALUES('$new_video_name')";
-            // mysqli_query($conn, $sql);
+        
             $db = new PDO('mysql:host=localhost;dbname=test_db', 'root', 'root');
-            $query = $db->prepare("INSERT INTO videos (video_url, channelname, videoname, description, image_url, channel_id) VALUES (?, ?, ?, ?, ?, ?)");
+            $query = $db->prepare("INSERT INTO videos (video_url, videoname, description, image_url, channel_id) VALUES (?, ?, ?, ?, ?)");
             $query->bindParam(1, $new_video_name);
-            $query->bindParam(2, $channel);
-            $query->bindParam(3,  $title);
-            $query->bindParam(4,  $description);
-            $query->bindParam(5,  $imagePath);
-            $query->bindParam(6, $channel_id);
-
+            $query->bindParam(2,  $title);
+            $query->bindParam(3,  $description);
+            $query->bindParam(4,  $imagePath);
+            $query->bindParam(5, $channel_id);
             $query->execute();
             header("Location: index.php");
             exit;

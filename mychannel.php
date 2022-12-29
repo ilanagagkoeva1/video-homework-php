@@ -22,7 +22,7 @@ $channel = $db->query("SELECT * FROM users WHERE id = " . intval($post['id']))->
     <?php foreach ($videos as $video) :
         $video = preparePost($video);
     ?>
-        <a href="channel.php?id=<?= $video['id'] ?>"><?= $video['channelname'] ?></a>
+        <a href="channel.php?id=<?= $video['id'] ?>"><?= $channel['channelname'] ?></a>
         <h3><?= $video['videoname'] ?></h3>
         <p><?= $video['description'] ?></p>
         <br>

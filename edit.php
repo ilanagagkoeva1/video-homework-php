@@ -21,11 +21,11 @@ if (isset($_POST['submit'])) {
             move_uploaded_file($image['tmp_name'], $imagePath);
         }
 
-        $query = $db->prepare("UPDATE videos SET  id = :id, video_url = :video_url, channelname = :channelname, videoname = :videoname, description = :description, image_url = :image_url, channel_id = :channel_id WHERE id = :id");
+        $query = $db->prepare("UPDATE videos SET  id = :id, video_url = :video_url, videoname = :videoname, description = :description, image_url = :image_url, channel_id = :channel_id WHERE id = :id");
         $query->execute([
             'id' => $post['id'],
             'video_url' => $post['video_url'],
-            'channelname' => $post['channelname'],
+           
             'videoname' => $post['videoname'],
             'description' => $post['description'],
             'image_url' => $imagePath,
